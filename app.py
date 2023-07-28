@@ -17,7 +17,7 @@ overbought_rsi_threshold = st.number_input("Overbought RSI Threshold", value=70,
 
 # Function to place a trade (Buy or Sell)
 def place_trade(order_type, lot_size, price):
-    st.write(f"Placing a {order_type} order for {lot_size} lots at price {price}")
+    st.write(f"### Placing a {order_type} order for {lot_size} lots at price {price} ###")
 
 def cancel_pending():
     st.write("\nPending orders cancelled")
@@ -81,7 +81,7 @@ if start_button:
                     # At the end of the candle, check if the position is profitable
                     if previous_candle['Close'] < current_candle['Close']:
                         # The position was profitable, reset the consecutive losses counter
-                        st.write("Position was profitable. Keeping lot size at 1.")
+                        st.write("*** Position was profitable. Keeping lot size at 1. ***")
                         consecutive_losses = 0
                     else:
                         # The position was a loss
@@ -91,7 +91,7 @@ if start_button:
                             break
                         else:
                             # Multiply lot size by profit_factor
-                            st.write("Position was a loss. Multiplying lot size by 2.")
+                            st.write("*** Position was a loss. Multiplying lot size by 2. ***")
                             lot_size *= profit_factor
                 else:
                     # At the end of the candle, check if the position is profitable
